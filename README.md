@@ -102,6 +102,18 @@ Sau khi server partner gửi request đến server MoMo nếu thành công thì 
 | amount    |  Long   |   Số tiền thanh toán    |
 | signature | String  | Sử dụng **Hmac_SHA256** |
 
+###### Example
+
+```
+{
+  "status": 0,
+  "message": "Thành công",
+  "amount": 40000,
+  "transid": "43121679",
+  "signature": "307b0ee753798e3aff6eb69b2d7966bf0fab29f88336ce0763532fcfafadbe28"
+}
+```
+
 #### Step 4
 
 Để hoàn tấc giao dịch bên phía partner sẽ gửi request tới server MoMo nhằm mục đích là xác nhận giao dich với các giá trị tương ứng như sau
