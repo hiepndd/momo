@@ -4,7 +4,7 @@
 
 ## Business Account
 
-Trước khi muốn liên kết với MoMo, partner sẽ phải đăng ký 1 tài khoản gọi là **business account**. Tài khoản này dùng để quản lý các giao dịch, thông tin tích hợp, v.v
+Trước khi muốn liên kết với MoMo, partner sẽ phải đăng ký 1 tài khoản gọi là **business account**. Tài khoản này dùng để quản lý các giao dịch, thông tin tích hợp, v.v
 
 ## Process Flow
 
@@ -14,7 +14,7 @@ Trước khi muốn liên kết với MoMo, partner sẽ phải đăng ký 1 tà
 
 App của partner sử dụng [MoMoMo Mobile SDK](https://github.com/momo-wallet/mobile-sdk) khởi tạo **deeplink** để mở app MoMo yêu cầu thanh toán với các tham số như sau
 
-| Field             |  Type   | Required |                     Description                     |
+| Field             |  Type   | Required |                     Description                     |
 | ----------------- | :-----: | :------: | :-------------------------------------------------: |
 | action            | String  |    √     |       Giá trị là **gettoken**. KHÔNG THAY ĐỔI       |
 | partner           | String  |    √     |       Giá trị là **merchant**. KHÔNG THAY ĐỔI       |
@@ -52,12 +52,14 @@ Các **status** có thể có sau khi MoMo callback kèm theo thông tin cần t
 
 ###### Example
 
-> {
-> "status": 0,
-> "message": "Success",
-> "phonenumber": "0963181714",
-> "data": "v2/qml0PbOlrBYjFlZvXwRWjoMpmFmvqStTJt4DCXfE0cgMtyH5Akv+FxL2Nu8lDmxt0P3Mu+YeCGB+UFfwXICo7D07jR6f2VhauglozphNgkK7724sO3qVKC9ZI8KCdr0k4AHuuUNF4AT6Iy2rOmaCVF1WeyS/y/n2E4DArwaHG2J+8StiawfZPiKoUGvywNHV"
-> }
+```
+{
+  "status": 0,
+  "message": "Success",
+  "phonenumber": "0963181714",
+  "data": "v2/qml0PbOlrBYjFlZvXwRWjoMpmFmvqStTJt4DCXfE0cgMtyH5Akv+FxL2Nu8lDmxt0P3Mu+YeCGB+UFfwXICo7D07jR6f2VhauglozphNgkK7724sO3qVKC9ZI8KCdr0k4AHuuUNF4AT6Iy2rOmaCVF1WeyS/y/n2E4DArwaHG2J+8StiawfZPiKoUGvywNHV"
+}
+```
 
 #### Step 3
 
@@ -76,16 +78,19 @@ Sau khi nhận được **token** từ app MoMo, server partner tạo request v�
 
 ###### Example
 
-> {
-> "partnerCode": "MOMOIQA420180417",
-> "customerNumber": "0966787273",
-> "partnerRefId": "Merchant123556666",
-> "appData": "v2/qml0PbOlrBYjFlZvXwRWjoMpmFmvqStTJt4DCXfE0cgMtyH5Akv+FxL2Nu8lDmxt0P3Mu+YeCGB+UFfwXICo7D07jR6f2VhauglozphNgkK7724sO3qVKC9ZI8KCdr0k4AHuuUNF4AT6Iy2rOmaCVF1WeyS/y/n2E4DArwaHG2J+8StiawfZPiKoUGvywNHV",
-> "hash": "A7WFmmnpn6TRX42Akh/iC5DdU5hhBT9LR5QSG6rJAl70hfEkkGUx2pTCai8s+M9KMVUcJ7m52iv74yhmeEjjN10TtEJoqITBIYBG2bqcTprhDijyhV4ePU7ytDNuLxzzIvGfTYyvbsEJ2jZTSf556yod12vhYqOJSFL/U2hVuxjUahf5Rnu5R/OLalg8QmlU6nQooEuNdzEXPMd6j9EaxOCiB2oM5/9QiTN0tCNSTIVvPtnlHu5mIbBHChcwfToIL4IAiD1nbrlDuBX//CZcrZj6hFqjvU31yb/DuG02c3aqWxbZKZ8csOwF9bL30m/yGr/0BQUWgunpDPrmCosf9A==",
-> "description": "Thanh toan cho don hang Merchant123556666 qua MoMo",
-> "version": 2,
-> "payType": 3
-> }
+```
+{
+  "partnerCode": "MOMOIQA420180417",
+  "customerNumber": "0966787273",
+  "partnerRefId": "Merchant123556666",
+  "appData": "v2/qml0PbOlrBYjFlZvXwRWjoMpmFmvqStTJt4DCXfE0cgMtyH5Akv+FxL2Nu8lDmxt0P3Mu+YeCGB+UFfwXICo7D07jR6f2VhauglozphNgkK7724sO3qVKC9ZI8KCdr0k4AHuuUNF4AT6Iy2rOmaCVF1WeyS/y/n2E4DArwaHG2J+8StiawfZPiKoUGvywNHV",
+  "hash": "A7WFmmnpn6TRX42Akh/iC5DdU5hhBT9LR5QSG6rJAl70hfEkkGUx2pTCai8s+M9KMVUcJ7m52iv74yhmeEjjN10TtEJoqITBIYBG2bqcTprhDijyhV4ePU7ytDNuLxzzIvGfTYyvbsEJ2jZTSf556yod12vhYqOJSFL/U2hVuxjUahf5Rnu5R/OLalg8QmlU6nQooEuNdzEXPMd6j9EaxOCiB2oM5/9QiTN0tCNSTIVvPtnlHu5mIbBHChcwfToIL4IAiD1nbrlDuBX//CZcrZj6hFqjvU31yb/DuG02c3aqWxbZKZ8csOwF9bL30m/yGr/0BQUWgunpDPrmCosf9A==",
+  "description": "Thanh toan cho don hang Merchant123556666 qua MoMo",
+  "version": 2,
+  "payType": 3
+}
+
+```
 
 Sau khi server partner gửi request đến server MoMo nếu thành công thì MoMo sẽ response có dạng như sau
 
@@ -114,15 +119,18 @@ Sau khi server partner gửi request đến server MoMo nếu thành công thì 
 
 ###### Example
 
-> {
-> "partnerCode": "MOMOIQA420180417",
-> "partnerRefId": "Merchant123556666",
-> "requestType": "capture",
-> "requestId": "1512529262248",
-> "momoTransId": "12436514111",
-> "signature": "307b0ee753798e3aff6eb69b2d7966bf0fab29f88336ce0763532fcfafadbe28",
-> "customerNumber": "0963181714"
-> }
+```
+{
+  "partnerCode": "MOMOIQA420180417",
+  "partnerRefId": "Merchant123556666",
+  "requestType": "capture",
+  "requestId": "1512529262248",
+  "momoTransId": "12436514111",
+  "signature": "307b0ee753798e3aff6eb69b2d7966bf0fab29f88336ce0763532fcfafadbe28",
+  "customerNumber": "0963181714"
+}
+
+```
 
 Sau khi server partner gửi request đến server MoMo nếu thành công thì MoMo sẽ response có dạng như sau
 
@@ -138,12 +146,17 @@ Sau khi server partner gửi request đến server MoMo nếu thành công thì 
 
 ###### Example
 
-> {
-> "status": 0,
-> "message": "Thành công",
-> "partnerCode": "MOMOIQA420180417",
-> "momoTransId": "12436514111",
-> "amount": 30000,
-> "partnerRefId": "Merchant123556666"
-> "signature": "307b0ee753798e3aff6eb69b2d7966bf0fab29f88336ce0763532fcfafadbe28"
-> }
+```
+{
+  "status": 0,
+  "message": "Thành công",
+  "data": {
+    "partnerCode": "MOMOIQA420180417",
+    "momoTransId": "12436514111",
+    "amount": 30000,
+    "partnerRefId": "Merchant123556666"
+  },
+  "signature": "307b0ee753798e3aff6eb69b2d7966bf0fab29f88336ce0763532fcfafadbe28"
+}
+
+```
