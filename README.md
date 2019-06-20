@@ -12,7 +12,7 @@ Trước khi muốn liên kết với MoMo, partner sẽ phải đăng ký 1 tà
 
 #### Step 1
 
-App của partner sử dụng [MoMoMo Mobile SDK](https://github.com/momo-wallet/mobile-sdk) khởi tạo **deeplink** để mở app MoMo yêu cầu thanh toán với các tham số như sau
+App của partner sử dụng [MoMo Mobile SDK](https://github.com/momo-wallet/mobile-sdk) khởi tạo **deeplink** để mở app MoMo yêu cầu thanh toán với các tham số như sau
 
 | Field             |  Type   | Required |                     Description                     |
 | ----------------- | :-----: | :------: | :-------------------------------------------------: |
