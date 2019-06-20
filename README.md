@@ -134,7 +134,7 @@ Sau khi server partner gửi request đến server MoMo nếu thành công thì 
 
 Sau khi server partner gửi request đến server MoMo nếu thành công thì MoMo sẽ response có dạng như sau
 
-| Field        |  Type   |       Description        |
+| Field        |  Type   |       Description        |
 | ------------ | :-----: | :----------------------: |
 | status       | Integer |    Kết quả giao dich     |
 | message      | String  |    Nội dung chi tiết     |
