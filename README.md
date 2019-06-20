@@ -14,12 +14,12 @@ Trước khi muốn liên kết với MoMo, partner sẽ phải đăng ký 1 tà
 
 App của partner sử dụng [MoMoMo Mobile SDK](https://github.com/momo-wallet/mobile-sdk) khởi tạo **deeplink** để mở app MoMo yêu cầu thanh toán với các tham số như sau
 
-| Field             |  Type   | Required |                     Description                     |
+| Field             |  Type   | Required |                     Description                     |
 | ----------------- | :-----: | :------: | :-------------------------------------------------: |
 | action            | String  |    √     |       Giá trị là **gettoken**. KHÔNG THAY ĐỔI       |
 | partner           | String  |    √     |       Giá trị là **merchant**. KHÔNG THAY ĐỔI       |
 | appScheme         | String  |    √     | Cung cấp bởi MoMo, được lấy từ **business.momo.vn** |
-| amount            | Integer |    √     |               Tổng số tiền thanh toán               |
+| amount            |   Int   |    √     |               Tổng số tiền thanh toán               |
 | description       | String  |    √     |                   Mô tả chi tiết                    |
 | merchantcode      | String  |    √     |                     Mã partner                      |
 | merchantname      | String  |    √     |                     Tên partner                     |
@@ -35,9 +35,9 @@ App của partner sử dụng [MoMoMo Mobile SDK](https://github.com/momo-wallet
 
 Sau khi khách hàng xác nhận thanh toán trên ứng dụng MoMo, MoMo callback lại ứng dụng của partner kèm theo dữ liệu như sau
 
-| Field       |  Type   |                Description                 |
+| Field       |  Type   |                Description                 |
 | ----------- | :-----: | :----------------------------------------: |
-| status      | Integer |        Trạng thái xác nhận đơn hàng        |
+| status      | Integer |        Trạng thái xác nhận đơn hàng        |
 | message     | String  |              Mô tả trạng thái              |
 | data        | String  | Token thanh toán của MoMo (Nếu status = 0) |
 | phonenumber | String  |        Số điện thoại tài khoản MoMo        |
@@ -65,12 +65,12 @@ Các **status** có thể có sau khi MoMo callback kèm theo thông tin cần t
 
 Sau khi nhận được **token** từ app MoMo, server partner tạo request và gửi đến server MoMo để request authorization.
 
-| Field          |  Type   | Required |                                         Description                                          |
+| Field          |  Type   | Required |                                         Description                                          |
 | -------------- | :-----: | :------: | :------------------------------------------------------------------------------------------: |
 | partnerCode    | String  |    √     |                                          Mã partner                                          |
 | partnerRefId   | String  |    √     |                                   Mã giao dich của partner                                   |
 | customerNumber | String  |    √     |                                Số điện thoại khách hàng MoMo                                 |
-| appData        | Integer |    √     |                                 Token nhận được từ app MoMo                                  |
+| appData        |   Int   |    √     |                                 Token nhận được từ app MoMo                                  |
 | hash           | String  |    √     | RSA (jsonString (bắt buộc phải có **partnerCode**, **partnerRefId**, **amount**), publicKey) |
 | version        | Double  |    √     |                                  Phiên bản, hiện tại là 2.0                                  |
 | payType        | Integer |    √     |                                         Giá trị là 3                                         |
@@ -94,7 +94,7 @@ Sau khi nhận được **token** từ app MoMo, server partner tạo request v�
 
 Sau khi server partner gửi request đến server MoMo nếu thành công thì MoMo sẽ response có dạng như sau
 
-| Field     |  Type   |       Description       |
+| Field     |  Type   |       Description       |
 | --------- | :-----: | :---------------------: |
 | status    | Integer |    Kết quả giao dịch    |
 | message   | String  |    Nội dung chi tiết    |
@@ -106,7 +106,7 @@ Sau khi server partner gửi request đến server MoMo nếu thành công thì 
 
 Để hoàn tấc giao dịch bên phía partner sẽ gửi request tới server MoMo nhằm mục đích là xác nhận giao dich với các giá trị tương ứng như sau
 
-| Field          |  Type  | Required |                                             Description                                              |
+| Field          |  Type  | Required |                                             Description                                              |
 | -------------- | :----: | :------: | :--------------------------------------------------------------------------------------------------: |
 | partnerCode    | String |    √     |                                              Mã partner                                              |
 | partnerRefId   | String |    √     |                                       Mã giao dich của partner                                       |
