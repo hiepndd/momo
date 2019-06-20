@@ -124,7 +124,7 @@ Sau khi server partner gửi request đến server MoMo nếu thành công thì 
 | partnerRefId   | String |    √     |                                       Mã giao dich của partner                                       |
 | requestType    | String |    √     | Loại request, có 2 giá trị: Xác nhận giao dịch: **capture** và hủy bỏ giao dịch: **revertAuthorize** |
 | requestId      | String |    √     |                                 Id của mỗi request khi gọi qua MoMo                                  |
-| momoTransId    | String |    √     |                                    Mã giao dịch MoMo đã trừ tiền                                     |
+| momoTransId    | String |    √     |      Mã giao dịch MoMo ( là một mã được MoMo tạo ra để định danh cho một giao dịch của partner)      |
 | signature      | String |    √     |                                       Sử dụng **Hmac_SHA256**                                        |
 | customerNumber | String |          |                                       Số điện thoại khách hàng                                       |
 | description    | String |          |                                             Mô tả lý do                                              |
